@@ -1,0 +1,279 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+@plugin "daisyui";
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+/* Configuration de Tailwind */
+@theme {
+    --font-family-sans: 'bebas-neue-pro-expanded', sans-serif;
+    --font-family-rust: 'nexa-rust-script-shad-2', cursive;
+
+    --color-brand-beige: #F5E6CA;
+    --color-brand-blue: #142A30;
+    --color-first-accent: #FF3B3F;
+    --color-second-accent: #48B9B3;
+    --color-third-accent: #FFD700;
+
+    /* Configuration DaisyUI pour le thème clair */
+    --color-primary: #48B9B3;
+    --color-secondary: #FF3B3F;
+    --color-accent: #FFD700;
+    --color-neutral: #142A30;
+    --color-base-100: #F5E6CA;
+    --color-info: #3ABFF8;
+    --color-success: #36D399;
+    --color-warning: #FBBD23;
+    --color-error: #F87272;
+}
+
+/* Configuration DaisyUI pour le thème sombre */
+.dark {
+    --color-primary: #48B9B3;
+    --color-secondary: #FF3B3F;
+    --color-accent: #FFD700;
+    --color-neutral: #F5E6CA;
+    --color-base-100: #1E3A42;
+    --color-base-200: #142A30;
+    --color-base-300: #0F1F23;
+}
+
+@font-face {
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+    body {
+        background-color: var(--color-brand-beige);
+        color: var(--color-brand-blue);
+    }
+
+    h1, h2, h3, h4, h5, h6 {
+        font-family: var(--font-family-rust);
+    }
+
+    .bg-brand-beige {
+        background-color: var(--color-brand-beige);
+    }
+
+    .text-brand-blue {
+        color: var(--color-brand-blue);
+    }
+
+    .bg-brand-blue {
+        background-color: var(--color-brand-blue);
+    }
+
+    .bg-first-accent {
+        background-color: var(--color-first-accent);
+    }
+
+    .bg-second-accent {
+        background-color: var(--color-second-accent);
+    }
+
+    .bg-third-accent {
+        background-color: var(--color-third-accent);
+    }
+}
+
+/* Composants personnalisés */
+@layer components {
+    .btn-primary {
+        background-color: var(--color-first-accent);
+        color: white;
+        transition: background-color 0.3s;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--color-second-accent);
+    }
+}
+
+[data-flux-field]:not(ui-radio) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply  !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+/* \[:where(&)\]:size-4 {
+    @apply size-4;
+} */
+
+/* Styles pour les cartes d'outils */
+.tool-card {
+    @apply p-4 rounded-lg transition-all duration-300 hover:bg-base-200 cursor-pointer;
+}
+
+/* Styles pour les tooltips */
+.tool-tooltip {
+    @apply absolute -bottom-8 left-1/2 transform -translate-x-1/2
+    bg-neutral text-neutral-content px-3 py-1 rounded text-sm
+    opacity-0 transition-all duration-300 pointer-events-none
+    whitespace-nowrap z-10 shadow-md scale-90;
+}
+
+.tool-card:hover .tool-tooltip {
+    @apply opacity-100 scale-100;
+}
+
+/* Animation légère pour les icônes au survol */
+.tool-card img {
+    @apply transition-all duration-300;
+}
+
+.tool-card:hover img {
+    @apply shadow-md;
+    animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes subtle-pulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+    50% {
+        transform: scale(1.05);
+        opacity: 0.9;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.animate-pulse {
+    animation: subtle-pulse 1.5s infinite;
+}
+
+/* Transition fluide pour le changement de couleur des icônes */
+.tool-card svg {
+    transition: fill 0.5s ease, transform 0.3s ease, filter 0.3s ease;
+}
+
+/* Effet au survol supplémentaire */
+.tool-card:hover {
+    transform: translateY(-2px);
+}
+
+/* Adaptation au mode sombre */
+.dark .tool-card:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Amélioration du contraste en mode sombre */
+.dark .tool-tooltip {
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+/* Animation d'entrée pour les icônes lors du chargement de la page */
+#outils-section .tool-card {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fade-in-up 0.6s ease forwards;
+}
+
+@keyframes fade-in-up {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Animation décalée pour chaque icône */
+#outils-section .tool-card:nth-child(1) { animation-delay: 0.1s; }
+#outils-section .tool-card:nth-child(2) { animation-delay: 0.2s; }
+#outils-section .tool-card:nth-child(3) { animation-delay: 0.3s; }
+#outils-section .tool-card:nth-child(4) { animation-delay: 0.4s; }
+#outils-section .tool-card:nth-child(5) { animation-delay: 0.5s; }
+#outils-section .tool-card:nth-child(6) { animation-delay: 0.6s; }
+#outils-section .tool-card:nth-child(7) { animation-delay: 0.7s; }
+#outils-section .tool-card:nth-child(8) { animation-delay: 0.8s; }
+#outils-section .tool-card:nth-child(9) { animation-delay: 0.9s; }
+
+/* Style pour le toggle switch */
+.form-control .label {
+    cursor: pointer;
+    user-select: none;
+}
+
+.toggle-primary:focus {
+    outline: none;
+    box-shadow: 0 0 0 2px rgba(72, 185, 179, 0.3);
+}
+
+.perspective-1000 {
+    perspective: 1000px;
+}
+
+.preserve-3d {
+    transform-style: preserve-3d;
+}
+
+.backface-hidden {
+    backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+    transform: rotateY(180deg);
+}
+
+/* Ajoutez ceci à votre fichier CSS */
+.mockup-browser {
+    & .mockup-browser-toolbar {
+        &:before {
+            box-shadow: 1.4em 0 #ED6A5E, /* Rouge macOS */
+                        2.8em 0 #F5BE4E, /* Jaune macOS */
+                        4.2em 0 #69B656; /* Vert macOS */
+            opacity: 1;
+        }
+    }
+}
+
+.github-gradient path {
+    fill: currentColor;
+    transition: fill 0.3s ease;
+}
+
+.github-gradient:hover path {
+    fill: url(#github-gradient);
+}
