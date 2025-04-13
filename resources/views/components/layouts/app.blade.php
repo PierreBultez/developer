@@ -107,24 +107,24 @@
 </footer>
 
 @livewireScripts
-<script>
-    // Gestion du thème sombre
-    document.addEventListener('DOMContentLoaded', function() {
-        const themeToggle = document.getElementById('theme-toggle');
+{{--<script>--}}
+{{--    // Gestion du thème sombre--}}
+{{--    document.addEventListener('DOMContentLoaded', function() {--}}
+{{--        const themeToggle = document.getElementById('theme-toggle');--}}
 
-        // Récupérer le thème du localStorage
-        const savedTheme = localStorage.getItem('theme') || 'light';
-        document.documentElement.classList.toggle('dark', savedTheme === 'dark');
-        themeToggle.checked = savedTheme === 'dark';
+{{--        // Récupérer le thème du localStorage--}}
+{{--        const savedTheme = localStorage.getItem('theme') || 'light';--}}
+{{--        document.documentElement.classList.toggle('dark', savedTheme === 'dark');--}}
+{{--        themeToggle.checked = savedTheme === 'dark';--}}
 
-        // Sauvegarder le thème dans le localStorage
-        themeToggle.addEventListener('change', function() {
-            const isDark = this.checked;
-            document.documentElement.classList.toggle('dark', isDark);
-            localStorage.setItem('theme', isDark ? 'dark' : 'light');
-        });
-    });
-</script>
+{{--        // Sauvegarder le thème dans le localStorage--}}
+{{--        themeToggle.addEventListener('change', function() {--}}
+{{--            const isDark = this.checked;--}}
+{{--            document.documentElement.classList.toggle('dark', isDark);--}}
+{{--            localStorage.setItem('theme', isDark ? 'dark' : 'light');--}}
+{{--        });--}}
+{{--    });--}}
+{{--</script>--}}
 <livewire:components.cookie-banner />
 </body>
 </html>
