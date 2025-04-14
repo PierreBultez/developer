@@ -3,7 +3,7 @@
     <section class="hero min-h-[50vh] container mx-auto">
         <div class="hero-content flex-col lg:flex-row items-center justify-between mx-auto w-full">
             <div class="max-w-xl">
-                <h1 class="text-5xl font-bold font-family-sans mb-6">Création et hébergement de sites web dans le Vaucluse</h1>
+                <h1 class="text-5xl font-bold font-family-sans mb-6">Cfffffffffffréation et hébergement de sites web dans le Vaucluse</h1>
                 <p class="text-lg mb-6 text-base-content/70">Optimisez votre présence en ligne avec des solutions web professionnelles adaptées à vos besoins. Sites vitrines, e-commerce et applications sur mesure.</p>
             </div>
 
