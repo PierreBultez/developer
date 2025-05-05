@@ -12,7 +12,7 @@
 </head>
 <body>
 
-<header class="bg-brand-beige py-4 px-6 flex justify-between items-center container mx-auto">
+<header class="bg-brand-beige py-4 px-12 flex justify-between items-center container mx-auto">
     <div class="flex items-center">
         <a href="/" class="text-4xl sm:text-7xl text-brand-blue font-family-rust tracking-wide">Pierre Bultez</a>
     </div>
@@ -49,7 +49,7 @@
     {{ $slot }}
 </main>
 
-<footer class="pb-16">
+<footer class="px-12 py-12 container mx-auto">
     <div class="footer footer-horizontal footer-center p-10 bg-neutral text-neutral-content container mx-auto rounded-3xl">
         <nav class="grid grid-flow-col gap-12">
             <a href="{{ route('privacy') }}" class="link link-hover">Confidentialité</a>
