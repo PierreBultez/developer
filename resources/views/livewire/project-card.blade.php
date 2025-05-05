@@ -41,7 +41,26 @@
 
         {{-- Face arrière (Verso) --}}
         <div class="absolute w-full h-full backface-hidden rounded-xl shadow-lg overflow-hidden rotate-y-180 bg-base-100">
-            <div class="w-full h-2" style="background-color: {{ $project['colorHex'] }}"></div>
+            <!-- <div class="w-full h-2" style="background-color: {{ $project['colorHex'] }}"></div> -->
+            @php
+                // 1. Enlever les espaces superflus au début/fin et séparer les couleurs
+                $colors = array_filter(explode(' ', trim($project['colorHex'])));
+                $style = ''; // Initialise la variable de style
+
+                if (count($colors) > 1) {
+                    // 2. Si on a plusieurs couleurs, créer la chaîne pour linear-gradient
+                    $gradientColors = implode(', ', $colors);
+                    // Vous pouvez changer la direction (ex: 'to bottom', '45deg')
+                    $style = 'background: linear-gradient(to right, ' . $gradientColors . ');';
+                } elseif (count($colors) === 1) {
+                    // 3. Si une seule couleur, utiliser background-color
+                    $style = 'background-color: ' . $colors[0] . ';';
+                }
+                // Si $colors est vide, $style restera vide (pas de couleur de fond)
+            @endphp
+
+            {{-- Appliquer le style généré --}}
+            <div class="w-full h-2" style="{{ $style }}"></div>
             <div class="p-6 flex flex-col h-full">
                 <h3 class="text-2xl font-bold mb-4">{{ $project['title'] }}</h3>
                 <p class="text-base-content/80 mb-6">{{ $project['description'] }}</p>
