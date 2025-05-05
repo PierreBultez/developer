@@ -1,6 +1,6 @@
 <div>
     <!-- Section Hero Modifiée -->
-    <section class="hero min-h-[50vh] container mx-auto">
+    <section class="hero min-h-[50vh] container px-12 py-12 mx-auto">
         <div class="hero-content flex-col lg:flex-row items-center justify-between mx-auto w-full">
             <div class="max-w-xl">
                 <h1 class="text-5xl font-bold font-family-sans mb-6">Création et hébergement de sites web dans le Vaucluse</h1>
@@ -23,7 +23,7 @@
     </section>
 
     <!-- Biographie -->
-    <section class="container mx-auto px-4 py-12">
+    <section class="container mx-auto px-12 py-12">
         <h2 class="text-6xl font-bold mb-6 text-left">Biographie</h2>
         <div class="card card-border bg-base-100 shadow-xl px-10 pt-10">
             <div class="card-title">
@@ -51,12 +51,13 @@
     </section>
 
     <!-- Outils -->
-    <section class="container mx-auto px-4 py-12" id="outils-section">
+    <section class="container mx-auto px-12 py-12" id="outils-section">
         <div class="flex justify-between items-center mb-10">
             <h2 class="text-6xl font-bold text-left font-rust">Outils</h2>
             <div class="form-control">
                 <label class="label cursor-pointer">
-                    <span class="label-text mr-2">Couleurs originales</span>
+                    <span class="label-text mr-2 hidden md:block">Couleurs originales</span>
+                    <span class="label-text mr-2 block md:hidden">Couleurs</span>
                     <input type="checkbox" id="toggle-brand-colors" class="toggle toggle-primary" />
                 </label>
             </div>
@@ -268,9 +269,10 @@
     </section>
 
     <!-- Technologies -->
-    <section class="container mx-auto px-4 py-12" id="techno-section">
+    <section class="container mx-auto px-12 py-12" id="techno-section">
         <div class="flex items-center justify-end mb-10">
-            <h2 class="text-6xl font-bold text-left font-rust">Technologies</h2>
+            <h2 class="text-6xl font-bold text-left font-rust hidden md:block">Technologies</h2>
+            <h2 class="text-6xl font-bold text-left font-rust block md:hidden">Technos.</h2>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -455,9 +457,10 @@
     </section>
 
     <!-- Administration système -->
-    <section class="container mx-auto px-4 py-12" id="sysadmin-section">
+    <section class="container mx-auto px-12 py-12" id="sysadmin-section">
         <div class="flex justify-between items-center mb-10">
-            <h2 class="text-6xl font-bold text-left font-rust">Administration système</h2>
+            <h2 class="text-6xl font-bold text-left font-rust hidden md:block">Infrastructure</h2>
+            <h2 class="text-6xl font-bold text-left font-rust block md:hidden">Sys. Infra.</h2>
         </div>
 
         <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
@@ -681,10 +684,11 @@
     </section>
 
     <!-- Section projets -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
+    <section class=" container px-12 py-12 mx-auto">
+        <div class="container mx-auto">
             <div class="text-left mb-16">
-                <h2 class="text-6xl font-bold mb-4">Mes Projets</h2>
+                <h2 class="text-6xl font-bold mb-4 hidden md:block">Mes Projets</h2>
+                <h2 class="text-6xl font-bold mb-4 block md:hidden">Projets</h2>
                 <p class="text-lg">
                     Découvrez une sélection de projets sur lesquels j'ai travaillé. Cliquez sur une carte pour voir plus de détails.
                 </p>
@@ -696,8 +700,8 @@
     </section>
 
     <!-- Section témoignages -->
-    <section class="py-20">
-        <div class="container mx-auto px-4">
+    <section class="container px-12 py-12 mx-auto">
+        <div class="container mx-auto">
             <div class="text-left mb-16">
                 <h2 class="text-6xl font-bold mb-4 font-family-rust">Témoignages</h2>
                 <p class="text-lg">
