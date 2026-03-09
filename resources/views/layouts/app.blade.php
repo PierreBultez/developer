@@ -83,6 +83,7 @@
     </div>
 </footer>
 
+@livewireScripts
 <livewire:components.cookie-banner />
 </body>
 </html>
